@@ -20,11 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingLeft:'10px',
       paddingRight: '15px'
     },
-    searchInput: {
-      display: "inline-block",
-      textAlign: "left",
-      float: "right",
-    },
   })
 );
 
@@ -39,7 +34,6 @@ export const Search:  React.FC<Props> = ({ initialData,label }) => {
       options={initialData}
       getOptionLabel={(option) => option.title}
       style={{ width: 250 }}
-      className={classes.searchInput}
       renderInput={(params) => <TextField {...params} label={label} variant="outlined" />}
     />
     </Box>

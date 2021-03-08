@@ -9,10 +9,12 @@ import {
   Box,
   Container,
   createStyles,
+  Grid,
   makeStyles,
   Theme,
   Typography,
 } from "@material-ui/core";
+import {DoctorMediaCard }from "../components/DoctorInformation";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,10 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       alignItems: "center",
       textAlign: "center",
-    },
-    labelName: {
-      textAlign: "right",
-      width: '250px'
     },
   })
 );
@@ -51,22 +49,54 @@ export default function Index() {
         display={mobile ? "block" : "flex"}
         p={2}
         justifyContent="center"
-        margin="0"
-        width={mobile ? "210px" : "100%"}
+        textAlign='center'
+        alignItems='center'
+        width="fit-content"
       >
-        <Box display="flex" p={2} >
-          <Typography className={classes.labelName}>Provincia</Typography>
+        <Box
+          display="flex"
+          p={2}
+          justifyContent={mobile ? "space-between" : "center"}
+        >
+          <Typography>Provincia</Typography>
           <Search initialData={top100Films} label="Provincia" />
         </Box>
-        <Box display="flex" p={2} >
-          <Typography className={classes.labelName}>Categoria</Typography>
+        <Box
+          display="flex"
+          p={2}
+          justifyContent={mobile ? "space-between" : "center"}
+        >
+          <Typography>Categoria</Typography>
           <Search initialData={top100Films} label="Categoria" />
         </Box>
-        <Box display="flex" p={2} >
-          <Typography className={classes.labelName}>Nombre</Typography>
+        <Box
+          display="flex"
+          p={2}
+          justifyContent={mobile ? "space-between" : "center"}
+        >
+          <Typography>Nombre</Typography>
           <Search initialData={top100Films} label="Nombre" />
         </Box>
       </Box>
+      <Container fixed>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={4}>
+            <DoctorMediaCard name='Dr 1' category='category 2'/>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <DoctorMediaCard name='Dr 2' category='category 2'/>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <DoctorMediaCard name='Dr 3' category='category 3'/>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <DoctorMediaCard name='Dr 4' category='category 4'/>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <DoctorMediaCard name='Dr 5' category='category 5'/>
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 }
